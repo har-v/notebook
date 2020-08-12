@@ -1,0 +1,29 @@
+{% extends 'notebooks/base.html' %}
+
+{% block content %}
+    <div class="sub-title">
+        {% if user.is_authenticated %}
+            Hello, {{ user.username }}.
+            (<a href="{% url 'users:logout' %}">
+                <i class="fa fa-sign-out" style='font-size:16px'></i>
+            </a>)
+        {% endif %}
+    </div>
+    <a href="{% url 'notebooks:new_topic' %}" class="add-topic" id="plusSign"></a>
+    <hr style="width: 90%";>
+    <ul class="topic-list">
+        {% for topic in topics %}
+            <li class="topic-list2">
+                <a href="{% url 'notebooks:topic' topic.id %}">{{ topic }}</a>
+                <div class="delete-bin">
+                    <a href="{% url 'notebooks:delete_topic' topic.id %}">
+                        <i class="fa fa-trash-o" style="font-size:22px"></i>
+                    </a>
+                </div>
+            </li>
+        {% empty %}
+            <li>No topics have been addded yet.</li>
+        {% endfor %}
+    </ul>
+{% endblock content %}
+       

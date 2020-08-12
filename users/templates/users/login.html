@@ -1,0 +1,20 @@
+{% extends 'users/base.html' %}
+
+{% block content %}
+    {% if form.errors %}
+        <p>Your username and password didn't match. Please try again.</p>
+    {% endif %}
+    <div class="row">
+    <form method="post" action="{% url 'users:login' %}" class="col s12">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button name="submit" class="login-btn">LOGIN</button>
+        <input type="hidden" name="next" value="{% url 'notebooks:topics' %}" />
+        <div class="page-link">
+            Already have an account?
+            <a href="{% url 'users:register' %}">
+                <b> Register</b>
+            </a>.
+        </div>
+    </form>
+{% endblock content %}

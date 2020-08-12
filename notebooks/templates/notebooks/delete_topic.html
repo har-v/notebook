@@ -1,0 +1,16 @@
+{% extends 'notebooks/base.html' %}
+
+{% block content %}
+    <div class="sub-title">
+        YOUR NOTES.
+    </div>
+    <a href="{% url 'notebooks:new_topic' %}" class="add-topic" id="plusSign"></a>
+    <hr style="width: 90%";>
+    <ul>
+        <li class="topic-list2">You're {{ topic }} note has been deleted.</li>
+        <li class="topic-list2">
+            Return to your <a href="{% url 'notebooks:topics' %}">notes</a>.
+        </li>
+    </ul>
+{% endblock content %}
+

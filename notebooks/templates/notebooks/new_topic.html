@@ -1,0 +1,17 @@
+{% extends 'notebooks/base.html' %}
+
+{% block content %}
+    <div class="sub-title">
+        YOUR NOTES.
+    </div>
+    <a href="{% url 'notebooks:new_topic' %}" class="add-topic" id="plusSign"></a>
+    <hr style="width: 90%";>
+    <div class="back-btn">
+        <a href="{% url 'notebooks:topics' %}">BACK TO TOPICS</a>
+    </div>
+    <form action="{% url 'notebooks:new_topic' %}" method='post'>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button name="submit" class="submit-button">ADD TOPIC</button>
+    </form>
+{% endblock content %}

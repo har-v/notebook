@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>NoteBook</title>
+   <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="{%static '/notebooks/main.css' %}">
+    <meta charset="UTF-8">
+</head>
+<body>
+<div id="container">
+    <div class="listForm">
+        <div class="header-image">
+            <div class="title">
+                NOTEBOOK.
+            </div>
+            <div class="dateSection">
+                <div class="day" id="day"></div>
+                <div class="center">
+                    <div class="month" id="month"></div>
+                    <div class="year" id="year"></div>
+                </div>
+                <div class="time" id="time"></div>
+            </div>
+        </div>
+        <div class="content-section">
+            {% block content %}{% endblock content %}
+        </div>
+    </div>
+</div>
+<script src="{% static '/notebooks/script.js' %}"></script>
+</body>
+</html>
+
+
